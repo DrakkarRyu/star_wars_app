@@ -6,6 +6,7 @@ import '../styles/Home.css'
 
 const favorites = []; //Making and empty array where will save the favorite characters
 
+// Making the function for to get the characters
 const Home = () => {
 
     const dispatch = useDispatch();
