@@ -4,7 +4,7 @@ import { getPeopleThunk } from '../redux/actions'; //Calling the response from t
 import { Link } from 'react-router-dom'; //Link help you for be redirected to another page of the app
 import '../styles/Home.css'
 
-const favorites = []; //Making and empty array where will save the favorite characters
+
 
 // Making the function for to get the characters
 const Home = () => {
@@ -16,9 +16,23 @@ const Home = () => {
         dispatch(getPeopleThunk());
     }, [dispatch]);
 
+    const addmyfavorites = (peopleItem) => {
+        const currentFavorites = localStorage.getItem("favorites")
+        if (currentFavorites) {
+            let favorites = JSON.parse(currentFavorites);
+            favorites.push(peopleItem);
+            favorites = JSON.stringify(favorites);
+            localStorage.setItem("favorites", favorites)
+        } else {
+            const favorites = JSON.stringify([peopleItem])
+            localStorage.setItem("favorites", favorites)
+        }
+
+    }
+
     return (
         <div className='HomePage'>
-            <Link to='/favorites'>Favorites</Link>
+            <Link to='/favorites'>Favorites jkl</Link>
             <h1>Home Page</h1>
             <ul className='Container'>
                 {
@@ -30,7 +44,7 @@ const Home = () => {
                             <p>Birth date: {peopleItem.birth_year}</p>
                             <button
                                 key={peopleItem.url}
-                                onClick={() => favorites.push(peopleItem)}//Adding the specific character to the array favorites 
+                                onClick={() => addmyfavorites(peopleItem)}//Adding the specific character to the array favorites 
                             >
                                 Add to Favorites
                             </button>
@@ -42,6 +56,5 @@ const Home = () => {
     );
 };
 
-console.log(favorites)
 
 export default Home; 
