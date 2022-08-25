@@ -1,27 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPeopleThunk } from '../redux/actions';
-import { Link } from 'react-router-dom';
+import { getPeopleThunk } from '../redux/actions'; //Calling the response from the api
+import { Link } from 'react-router-dom'; //Link help you for be redirected to another page of the app
 import '../styles/Home.css'
 
-const favorites = [];
-console.log(favorites)
+const favorites = []; //Making and empty array where will save the favorite characters
 
 const Home = () => {
 
     const dispatch = useDispatch();
-    const people = useSelector(state => state.people);
+    const people = useSelector(state => state.people); //Making the variable with useSelector for to call the datas from the api
 
     useEffect(() => {
         dispatch(getPeopleThunk());
     }, [dispatch]);
 
-    /*
-    const addToFavorites = () => {
-        favorites.push()
-        console.log(favorites.push())
-    }
-    */
     return (
         <div className='HomePage'>
             <Link to='/favorites'>Favorites</Link>
@@ -36,7 +29,7 @@ const Home = () => {
                             <p>Birth date: {peopleItem.birth_year}</p>
                             <button
                                 key={peopleItem.url}
-                                onClick={() => favorites.push(peopleItem.url)}
+                                onClick={() => favorites.push(peopleItem.url)}//Adding the specific character to the array favorites 
                             >
                                 Add to Favorites
                             </button>

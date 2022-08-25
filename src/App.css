@@ -12,7 +12,7 @@ body {
     color: white;
 }
 
-.HomePage a:link{
+.HomePage {
     color: #000000;
 }
 
@@ -31,29 +31,6 @@ img {
 }
 
 
-body a:link{
+body a:link, h1{
     color: #ffffff;
-}
-
-.images-hover{
-    width: 200px;
-    height: 200px;
-    position: relative;
-}
-
-.images-hover img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #ffffff;
-}
-
-.images-hover .over{
-    position: absolute;
-    opacity: 0;
-    transition: 0.6s;
-}
-
-.images-hover .over:hover{
-    opacity: 1;
 }
