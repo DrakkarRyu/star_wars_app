@@ -16,15 +16,15 @@ const Home = () => {
         dispatch(getPeopleThunk());
     }, [dispatch]);
 
-    const addmyfavorites = (peopleItem) => {
+    const addMyFavorites = (personItem) => {
         const currentFavorites = localStorage.getItem("favorites")
         if (currentFavorites) {
             let favorites = JSON.parse(currentFavorites);
-            favorites.push(peopleItem);
+            favorites.push(personItem);
             favorites = JSON.stringify(favorites);
             localStorage.setItem("favorites", favorites)
         } else {
-            const favorites = JSON.stringify([peopleItem])
+            const favorites = JSON.stringify([personItem])
             localStorage.setItem("favorites", favorites)
         }
 
@@ -32,19 +32,19 @@ const Home = () => {
 
     return (
         <div className='HomePage'>
-            <Link to='/favorites'>Favorites jkl</Link>
+            <Link to='/favorites'>Favorites </Link>
             <h1>Home Page</h1>
             <ul className='Container'>
                 {
-                    people.map(peopleItem => (
-                        <li className='card' key={peopleItem.url}>
-                            <h2>Name: {peopleItem.name}</h2>
-                            <p>Height: {peopleItem.height}</p>
-                            <p>Mass: {peopleItem.mass}</p>
-                            <p>Birth date: {peopleItem.birth_year}</p>
+                    people.map(personItem => (
+                        <li className='card' key={personItem.url}>
+                            <h2>Name: {personItem.name}</h2>
+                            <p>Height: {personItem.height}</p>
+                            <p>Mass: {personItem.mass}</p>
+                            <p>Birth date: {personItem.birth_year}</p>
                             <button
-                                key={peopleItem.url}
-                                onClick={() => addmyfavorites(peopleItem)}//Adding the specific character to the array favorites 
+                                key={personItem.url}
+                                onClick={() => addMyFavorites(personItem)}//Adding the specific character to the array favorites 
                             >
                                 Add to Favorites
                             </button>
