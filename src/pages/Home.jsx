@@ -30,7 +30,7 @@ const Home = () => {
                             <p>Birth date: {peopleItem.birth_year}</p>
                             <button
                                 key={peopleItem.url}
-                                onClick={() => favorites.push(peopleItem.url)}//Adding the specific character to the array favorites 
+                                onClick={() => favorites.push(peopleItem)}//Adding the specific character to the array favorites 
                             >
                                 Add to Favorites
                             </button>
@@ -41,5 +41,7 @@ const Home = () => {
         </div>
     );
 };
+
+console.log(favorites)
 
 export default Home; 
