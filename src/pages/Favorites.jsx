@@ -18,7 +18,9 @@ const Favorites = () => {
     return (
         <div>
             <h1>Favorites</h1>
-            <Link to='/'>Home</Link>
+            <header>
+                <Link to='/'>Home</Link>
+            </header>
             <ul className='container'>
                 {//Making a conditional if not exist a character in favorites 
                     !people ? (

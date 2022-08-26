@@ -46,7 +46,9 @@ const Home = () => {
 
     return (
         <div className='HomePage'>
-            <Link to='/favorites'>Favorites </Link>
+            <header>
+                <Link to='/favorites'>Favorites </Link>
+            </header>
             <h1>Home Page</h1>
             <InfiniteScroll //Making the basic structure for infinite scroll 
                 dataLength={people.length}//{items.length}This is important field to render the next data 
