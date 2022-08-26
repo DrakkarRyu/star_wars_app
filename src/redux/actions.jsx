@@ -21,10 +21,11 @@ export const setIsLoading = isLoading => ({
 //Making and exporting the thunks
 //Here you can make the petitions with fetch or axios 
 
-export const getPeopleThunk = () => {
+export const getPeopleThunk = page => {
+    const params = { page: page }
     return dispatch => {
         dispatch(setIsLoading(true))
-        return axios.get(`https://swapi.dev/api/people/?page=${1}`)
+        return axios.get(`https://swapi.dev/api/people/?page=`, { params: params })
             .then(res => dispatch(setPeople(res.data.results)))
             .finally(() => dispatch(setIsLoading(false)))
     }

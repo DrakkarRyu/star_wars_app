@@ -12,7 +12,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actions.setPeople:
             return {
                 ...state,
-                people: action.payload
+                people: state.people.concat(action.payload)
             }
         default:
             return state;
