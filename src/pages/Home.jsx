@@ -11,24 +11,26 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const people = useSelector(state => state.people); //Making the variable with useSelector for to call the datas from the api
-    const [page, setPage] = useState(1);
-    const hasMore = true;
+    const [page, setPage] = useState(1); //Making the varials for page for to use in the infinity scroll
+    const hasMore = true; //In this case hasMore with value true mean that always i'll have new pages for to open
 
+    //Dispatching the thunk for to get the array of characters
     useEffect(() => {
         dispatch(getPeopleThunk(1))
-        setPage(prevState => prevState + 1)
+        setPage(prevState => prevState + 1) //It says to the thunk => Previous State =  Previous State + 1 for to work with the call of axios
     }, [dispatch])
 
+    // A function for to make a call to the api and to get the next page with more characters
     const fetchCharacters = () => {
         setPage(prevState => prevState + 1)
         setTimeout(() => {
-            if (hasMore) {
+            if (hasMore) { //If the condition is true will send a petition to the thunk for to get more pages
                 dispatch(getPeopleThunk(page))
             }
-        }, 1000)
+        }, 1000)// Waiting 1 second , 1000 miliseconds = 1 second 
     }
 
-    //Saving the favorite characters in the local storage 
+    //Saving the favorite characters in the local storage in format JSON 
     const addMyFavorites = (personItem) => {
         const currentFavorites = localStorage.getItem("favorites")
         if (currentFavorites) {
@@ -46,8 +48,8 @@ const Home = () => {
         <div className='HomePage'>
             <Link to='/favorites'>Favorites </Link>
             <h1>Home Page</h1>
-            <InfiniteScroll
-                dataLength={people.length}
+            <InfiniteScroll //Making the basic structure for infinite scroll 
+                dataLength={people.length}//{items.length}This is important field to render the next data 
                 hasMore={hasMore}
                 next={fetchCharacters}>
                 <ul className='Container'>
