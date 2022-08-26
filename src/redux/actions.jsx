@@ -13,6 +13,7 @@ export const setPeople = people => ({
     payload: people
 })
 
+//for to have an animation everytime you make a petition 
 export const setIsLoading = isLoading => ({
     type: actions.setIsLoading,
     payload: isLoading
