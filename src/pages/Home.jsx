@@ -12,10 +12,12 @@ const Home = () => {
     const dispatch = useDispatch();
     const people = useSelector(state => state.people); //Making the variable with useSelector for to call the datas from the api
 
+    //calling the datas from redux
     useEffect(() => {
         dispatch(getPeopleThunk());
     }, [dispatch]);
 
+    //Saving the favorite characters in the local storage 
     const addMyFavorites = (personItem) => {
         const currentFavorites = localStorage.getItem("favorites")
         if (currentFavorites) {
@@ -27,7 +29,6 @@ const Home = () => {
             const favorites = JSON.stringify([personItem])
             localStorage.setItem("favorites", favorites)
         }
-
     }
 
     return (
@@ -36,7 +37,7 @@ const Home = () => {
             <h1>Home Page</h1>
             <ul className='Container'>
                 {
-                    people.map(personItem => (
+                    people.map(personItem => (//showing the informations of the characters in cards
                         <li className='card' key={personItem.url}>
                             <h2>Name: {personItem.name}</h2>
                             <p>Height: {personItem.height}</p>
