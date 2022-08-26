@@ -10,9 +10,9 @@
     background-color: #ffffff;
     border-radius: 15px;
     margin-top: 50px;
+    margin-left: 27%;
     overflow:hidden;
     padding: 1rem;
-    justify-content: center;
     height: 100%;
     width: 40vw;
     min-height: 19rem;
@@ -20,25 +20,33 @@
     align-items: center;
 }
 
-.card img{
-    height: 80%;
-    width: 80%;
-    object-fit: contain;
-    margin: 0 auto;
-    display: block;
-}
 
 .card h2, p{
     text-decoration: none;
     color: #000000;
+    margin-bottom: 50px;
 }
 
 .container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     min-height: 100vh;
     padding-top: 50px;
     margin: auto;
     gap: 50px;
     width: 100%;
+}
+
+button{
+    margin-top: 50px;
+    background-color: #000000;
+    width: 100px;
+    border-radius: 25px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow:5px 5px 5px #ec0606;
+    transform: translateY(-3%)
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPeopleThunk } from '../redux/actions'; //Calling the response from the api
 import { Link } from 'react-router-dom'; //Link help you for be redirected to another page of the app
-import '../styles/Home.css'
+import '../styles/Styles.css'
 import InfiniteScroll from 'react-infinite-scroll-component'; //For to make the infinite scroll
 
 
@@ -61,10 +61,11 @@ const Home = () => {
                                 <p>Mass: {personItem.mass}</p>
                                 <p>Birth date: {personItem.birth_year}</p>
                                 <button
+                                    className='button__add'
                                     key={personItem.url}
                                     onClick={() => addMyFavorites(personItem)}//Adding the specific character to the array favorites 
                                 >
-                                    Add to Favorites
+                                    <i class="fa-solid fa-heart"></i>
                                 </button>
                             </li>
                         ))

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FavoriteCharacters } from '../components';
-import '../styles/Favorites.css'
+import { Link } from 'react-router-dom';
+import '../styles/Styles.css'
 
 //Calling the information saved in the local storage from the page Home
 const Favorites = () => {
@@ -17,6 +18,7 @@ const Favorites = () => {
     return (
         <div>
             <h1>Favorites</h1>
+            <Link to='/'>Home</Link>
             <ul className='container'>
                 {//Making a conditional if not exist a character in favorites 
                     !people ? (
@@ -26,9 +28,10 @@ const Favorites = () => {
                             <li className='card' key={person.url}>
                                 <FavoriteCharacters key={person.url} name={person.name} height={person.height} mass={person.mass} />
                                 <button
+                                    className='button__delete'
                                     onClick={() => deleteMyFavorites(i)}//Delete the specific character from the array favorites 
                                 >
-                                    Delete from favorites
+                                    <i class="fa-solid fa-heart-crack"></i>
                                 </button>
                             </li>
                         ))
