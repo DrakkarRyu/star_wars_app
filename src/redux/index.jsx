@@ -12,7 +12,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actions.setPeople:
             return {
                 ...state,
-                people: state.people.concat(action.payload)
+                people: state.people.concat(action.payload) //making a concatenation for the results in the api 
             }
         default:
             return state;

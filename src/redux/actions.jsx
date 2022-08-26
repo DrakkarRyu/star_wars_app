@@ -21,11 +21,11 @@ export const setIsLoading = isLoading => ({
 //Making and exporting the thunks
 //Here you can make the petitions with fetch or axios 
 
-export const getPeopleThunk = page => {
+export const getPeopleThunk = page => { //received page as params
     const params = { page: page }
     return dispatch => {
         dispatch(setIsLoading(true))
-        return axios.get(`https://swapi.dev/api/people/?page=`, { params: params })
+        return axios.get(`https://swapi.dev/api/people/?page=`, { params: params }) //making a dinamic form
             .then(res => dispatch(setPeople(res.data.results)))
             .finally(() => dispatch(setIsLoading(false)))
     }
