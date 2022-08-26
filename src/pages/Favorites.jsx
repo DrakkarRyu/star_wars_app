@@ -22,7 +22,7 @@ const Favorites = () => {
                     ) : (
                         people.map((person, i) => (
                             <li className='card' key={person.url}>
-                                <FavoriteCharacters key={person.url} name={person.name} />
+                                <FavoriteCharacters key={person.url} name={person.name} height={person.height} mass={person.mass} />
                                 <button
                                     onClick={() => deleteMyFavorites(i)}//Delete the specific character from the array favorites 
                                 >
